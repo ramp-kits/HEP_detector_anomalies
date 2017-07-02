@@ -7,7 +7,7 @@ problem_title = 'Detecting anomalies in the LHC ATLAS detector'
 _target_column_name = 'isSkewed'
 _prediction_label_names = [0, 1]
 # A type (class) which will be used to create wrapper objects for y_pred
-Predictions = rw.prediction_types.multiclass.make_predictions_type(
+Predictions = rw.prediction_types.make_multiclass(
     label_names=_prediction_label_names)
 # An object implementing the workflow
 workflow = rw.workflows.Classifier()
