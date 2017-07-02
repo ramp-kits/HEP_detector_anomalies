@@ -4,18 +4,21 @@ import rampwf as rw
 from sklearn.model_selection import StratifiedShuffleSplit
 
 problem_title = 'Detecting anomalies in the LHC ATLAS detector'
-prediction_type = rw.prediction_types.multiclass
-workflow = rw.workflows.Classifier()
-prediction_labels = [0, 1]
 _target_column_name = 'isSkewed'
+_prediction_label_names = [0, 1]
+# A type (class) which will be used to create wrapper objects for y_pred
+Predictions = rw.prediction_types.multiclass.make_predictions_type(
+    label_names=_prediction_label_names)
+# An object implementing the workflow
+workflow = rw.workflows.Classifier()
 
 score_types = [
     rw.score_types.ROCAUC(
-        name='auc', precision=3, n_columns=len(prediction_labels)),
+        name='auc', precision=3, n_columns=len(_prediction_label_names)),
     rw.score_types.Accuracy(
-        name='accuracy', precision=3, n_columns=len(prediction_labels)),
+        name='accuracy', precision=3, n_columns=len(_prediction_label_names)),
     rw.score_types.NegativeLogLikelihood(
-        name='nll', precision=3, n_columns=len(prediction_labels)),
+        name='nll', precision=3, n_columns=len(_prediction_label_names)),
 ]
 
 
