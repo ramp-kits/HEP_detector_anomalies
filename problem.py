@@ -13,12 +13,9 @@ Predictions = rw.prediction_types.make_multiclass(
 workflow = rw.workflows.Classifier()
 
 score_types = [
-    rw.score_types.ROCAUC(
-        name='auc', precision=3, n_columns=len(_prediction_label_names)),
-    rw.score_types.Accuracy(
-        name='accuracy', precision=3, n_columns=len(_prediction_label_names)),
-    rw.score_types.NegativeLogLikelihood(
-        name='nll', precision=3, n_columns=len(_prediction_label_names)),
+    rw.score_types.ROCAUC(name='auc', precision=3),
+    rw.score_types.Accuracy(name='accuracy', precision=3),
+    rw.score_types.NegativeLogLikelihood(name='nll', precision=3),
 ]
 
 
