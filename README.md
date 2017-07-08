@@ -11,3 +11,5 @@ Install ramp-workflow (rampwf), then execute
 ```
 ramp_test_submission
 ```
+
+Get started on this RAMP with the [dedicated notebook](HEP_detector_anomalies_starting_kit.ipynb).

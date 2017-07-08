@@ -19,8 +19,7 @@ install:
     - cd ..
 script:
     - flake8 *.py submissions/*/*.py
-    - jupyter nbconvert --execute HEP_detector_anomalies_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL
+    - jupyter nbconvert --execute HEP_detector_anomalies_starting_kit.ipynb --ExecutePreprocessor.kernel_name=$IPYTHON_KERNEL  --ExecutePreprocessor.timeout=600
     - ramp_test_submission
-    - ramp_test_submission --submission=random_forest_10_10
 notifications:
   email: true
